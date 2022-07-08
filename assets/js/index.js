@@ -61,9 +61,7 @@ let html = '';
 let propSeleccionada;
 let total;
 
-
 cajaPropiedades = document.querySelector('.propiedades');
-cantidad = document.getElementById('py-3')
 
 cargaInicial();
 
@@ -144,7 +142,11 @@ if (total == 0) {
 
 */
 
+// VACIO EL HTML
+html = '';
 
+
+// FILTROS EN BASE AL ON CLICK
 
 btn.onclick = (event) => {
 
@@ -152,6 +154,7 @@ btn.onclick = (event) => {
     let desde = document.querySelector('#mtdesde').value;
     let hasta = document.querySelector('#mthasta').value;
     let cajaPropiedades = document.querySelector('.propiedades');
+    let cantidad = document.querySelector('.py-3').value;
 
     console.log(cuartos);
     console.log(desde);
@@ -168,7 +171,7 @@ btn.onclick = (event) => {
             template(propFiltrada)
         }
 
-        total = propSeleccionada.length
+        total = propFiltrada.length
         cantidad.innerHTML = total
     }
 
@@ -177,8 +180,9 @@ btn.onclick = (event) => {
         cantidad.innerHTML = 0
         alert('No hay resultados')
     }
-}
 
+
+}
 
 function template(propFiltrada) {
 
