@@ -41,25 +41,26 @@ const propiedadesJSON = [{
         metros: 500
     },
     {
-        nombre: "Mansión2",
-        descripcion: "Vive una vida lujosa en la mansión de tus sueños ",
-        src: "https://thumbs.dreamstime.com/b/jacobean-manor-house-15201867.jpg",
-        cuartos: 20,
-        metros: 500
+        nombre: "Loft",
+        descripcion: "Amplio espacio en un entorno que invita a la creatividad ",
+        src: "https://images.hola.com/imagenes/decoracion/20210621191783/loft-estilo-eclectico-industrial-decoracion-interiores-lm/0-966-599/loft-antrax-1a-a.jpg",
+        cuartos: 2,
+        metros: 120
     },
     {
-        nombre: "Mansión3",
-        descripcion: "Vive una vida lujosa en la mansión de tus sueños ",
-        src: "https://thumbs.dreamstime.com/b/jacobean-manor-house-15201867.jpg",
-        cuartos: 20,
-        metros: 500
+        nombre: "Ley Pereira",
+        descripcion: "Para los que gustan de un estilo funcional, con  buen gusto y un toque inglés",
+        src: "https://cl.habcdn.com/photos/project/medium/10-300602.jpg",
+        cuartos: 4,
+        metros: 200
     },
 
 ];
 
 let html = '';
 let propSeleccionada;
-let total;
+
+//let total;
 
 cajaPropiedades = document.querySelector('.propiedades');
 
@@ -144,6 +145,8 @@ if (total == 0) {
 
 // VACIO EL HTML
 html = '';
+let total;
+
 
 
 // FILTROS EN BASE AL ON CLICK
@@ -173,6 +176,7 @@ btn.onclick = (event) => {
 
         total = propFiltrada.length
         cantidad.innerHTML = total
+        console.log(total)
     }
 
     if (total == 0) {
