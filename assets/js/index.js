@@ -59,10 +59,12 @@ const propiedadesJSON = [{
 
 let html = '';
 let propSeleccionada;
+let total;
 
 //let total;
 
 cajaPropiedades = document.querySelector('.propiedades');
+let cantidad = document.querySelector('.py-3');
 
 cargaInicial();
 
@@ -144,20 +146,20 @@ if (total == 0) {
 */
 
 // VACIO EL HTML
-html = '';
-let total;
-
 
 
 // FILTROS EN BASE AL ON CLICK
 
 btn.onclick = (event) => {
 
-    let cuartos = document.querySelector('#nrocuartos').value;
-    let desde = document.querySelector('#mtdesde').value;
-    let hasta = document.querySelector('#mthasta').value;
-    let cajaPropiedades = document.querySelector('.propiedades');
-    let cantidad = document.querySelector('.py-3').value;
+    html = '';
+    let total;
+    let cuartos = Number(document.querySelector('#nrocuartos').value);
+    let desde = Number(document.querySelector('#mtdesde').value);
+    let hasta = Number(document.querySelector('#mthasta').value);
+    // let cajaPropiedades = document.querySelector('.propiedades');
+    // let cantidad = document.querySelector('.py-3');
+
 
     console.log(cuartos);
     console.log(desde);
@@ -173,8 +175,10 @@ btn.onclick = (event) => {
         for (let propFiltrada of propSeleccionada) {
             template(propFiltrada)
         }
+        console.log("propSeleccionada->", propSeleccionada.length)
 
-        total = propFiltrada.length
+
+        total = propSeleccionada.length
         cantidad.innerHTML = total
         console.log(total)
     }
@@ -230,3 +234,4 @@ function template(propFiltrada) {
             // terminar con     cajaPropiedades.innerHTML = html
     }
 */
+;
