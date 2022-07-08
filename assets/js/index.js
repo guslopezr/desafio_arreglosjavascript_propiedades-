@@ -39,7 +39,22 @@ const propiedadesJSON = [{
         src: "https://thumbs.dreamstime.com/b/jacobean-manor-house-15201867.jpg",
         cuartos: 20,
         metros: 500
-    }
+    },
+    {
+        nombre: "Mansión2",
+        descripcion: "Vive una vida lujosa en la mansión de tus sueños ",
+        src: "https://thumbs.dreamstime.com/b/jacobean-manor-house-15201867.jpg",
+        cuartos: 20,
+        metros: 500
+    },
+    {
+        nombre: "Mansión3",
+        descripcion: "Vive una vida lujosa en la mansión de tus sueños ",
+        src: "https://thumbs.dreamstime.com/b/jacobean-manor-house-15201867.jpg",
+        cuartos: 20,
+        metros: 500
+    },
+
 ];
 
 let html = '';
@@ -48,7 +63,7 @@ let total;
 
 
 cajaPropiedades = document.querySelector('.propiedades');
-cantidad = document.getElementById('cantidad')
+cantidad = document.getElementById('py-3')
 
 cargaInicial();
 
@@ -129,24 +144,7 @@ if (total == 0) {
 
 */
 
-function template(propiedadFiltrada) {
 
-    html += `<div class="propiedad">
-                <div class="img" style="background-image: url(${propiedadFiltrada.src})"></div>
-                <section>
-                    <h5>${propiedadFiltrada.nombre}</h5>
-                    <div class="d-flex justify-content-between">
-                        <p>Cuartos: ${propiedadFiltrada.cuartos}</p>
-                        <p>Metros: ${propiedadFiltrada.metros}</p>
-                    </div>
-                    <p class="my-3">${propiedadFiltrada.descripcion}</p>
-                    <button class="btn btn-info ">Ver más</button>
-                </section>
-            </div>`
-
-    cajaPropiedades.innerHTML = html
-
-}
 
 btn.onclick = (event) => {
 
@@ -154,7 +152,6 @@ btn.onclick = (event) => {
     let desde = document.querySelector('#mtdesde').value;
     let hasta = document.querySelector('#mthasta').value;
     let cajaPropiedades = document.querySelector('.propiedades');
-    let propFiltrada = template;
 
     console.log(cuartos);
     console.log(desde);
@@ -163,20 +160,51 @@ btn.onclick = (event) => {
     if (cuartos == 0 || desde == 0 || hasta == 0) {
         alert("Todos los campos de filtro deben tener datos");
     } else {
-        propSeleccionada = propiedadesJSON.filter(propiedad => {
-            return propiedad.cuartos >= cuartos && propiedad.metros >= desde && propiedad.metros <= hasta
+        propSeleccionada = propiedadesJSON.filter(propiedadSel => {
+            return propiedadSel.cuartos >= cuartos && propiedadSel.metros >= desde && propiedadSel.metros <= hasta
         })
+
+        for (let propFiltrada of propSeleccionada) {
+            template(propFiltrada)
+        }
+
+        total = propSeleccionada.length
+        cantidad.innerHTML = total
     }
-    for (let propFiltrada of propSeleccionada) {
-        template(propiedadFiltrada)
+
+    if (total == 0) {
+        cajaPropiedades.innerHTML = '<div><h1>Intenta buscar nuevamente <i class="bi bi-search"></i></h1></div>'
+        cantidad.innerHTML = 0
+        alert('No hay resultados')
     }
+}
 
-    total = propSeleccionada.length
-    cantidad.innerHTML = total
 
-    //PRUEBAS
+function template(propFiltrada) {
 
-    /*
+    html += `<div class="propiedad">
+                    <div class="img" style="background-image: url(${propFiltrada.src})"></div>
+                    <section>
+                        <h5>${propFiltrada.nombre}</h5>
+                        <div class="d-flex justify-content-between">
+                            <p>Cuartos: ${propFiltrada.cuartos}</p>
+                            <p>Metros: ${propFiltrada.metros}</p>
+                        </div>
+                        <p class="my-3">${propFiltrada.descripcion}</p>
+                        <button class="btn btn-info ">Ver más</button>
+                    </section>
+                </div>`
+
+    cajaPropiedades.innerHTML = html
+
+}
+
+
+
+
+//PRUEBAS
+
+/*
         html += `<div class="propiedad">
         <div class="img" style="background-image: url(${propiedadFiltrada.src})"></div>
             <section>
@@ -194,5 +222,3 @@ btn.onclick = (event) => {
             // terminar con     cajaPropiedades.innerHTML = html
     }
 */
-
-}
