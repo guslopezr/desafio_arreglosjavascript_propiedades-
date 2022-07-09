@@ -69,6 +69,7 @@ let cantidad = document.querySelector('.py-3');
 cargaInicial();
 
 //FUNCION CARGA INICIAL
+
 function cargaInicial() {
 
     for (let propiedad of propiedadesJSON) {
@@ -89,63 +90,8 @@ function cargaInicial() {
     cajaPropiedades.innerHTML = html
 }
 
-/* 
-// PRUEBA DE DESPLIEGUE EN LAS CARDS
-
-const props = document.querySelector(".propiedades")
-for (prop of propiedadesJSON) {
-    const template = `
-    
-     <div class="img" style=>
-     <img src= ${prop.src}></img>
-     </div>
-     <section>
-     <h5> ${prop.nombre} </h5>
-     <div class="d-flex justify-content-between">
-         <p>${prop.descripcion}</p>
-         <p>${prop.cuartos}</p>
-     </div>
-     <p class="my-3"></p>
-     <button class="btn btn-info ">Ver más</button>
-     </section>
-    `;
-    props.innerHTML += template;
-}
-*/
-
-/*
-CODIGO IMPORTADO DE TITAN PARA PRUEBA 
 
 
-let cuartos = document.querySelector('#nrocuartos').value;
-let desde = document.querySelector('#mtdesde').value;
-let hasta = document.querySelector('#mthasta').value;
-
-if (cuartos == '' || desde == '' || hasta == '') {
-    alert('Todos los campos de filtro deben tener datos');
-} else {
-    propSeleccionada = propiedadesJSON.filter(prop => {
-        return prop.cuartos >= cuartos && (prop.m >= desde && prop.m <= hasta)
-    })
-}
-
-for (let propiedad of propSeleccionada) {
-    template(propiedad)
-}
-
-total = propSeleccionada.length
-cantidad.innerHTML = total
-
-if (total == 0) {
-    cajaPropiedades.innerHTML = '<div><h1>Intenta buscar nuevamente <i class="bi bi-search"></i></h1></div>'
-    cantidad.innerHTML = 0
-    alert('No hay resultados')
-}
-
-
-*/
-
-// VACIO EL HTML
 
 
 // FILTROS EN BASE AL ON CLICK
@@ -184,7 +130,7 @@ btn.onclick = (event) => {
     }
 
     if (total == 0) {
-        cajaPropiedades.innerHTML = '<div><h1>Intenta buscar nuevamente <i class="bi bi-search"></i></h1></div>'
+        cajaPropiedades.innerHTML = '<div><h1>Intenta buscar nuevamente  más propiedades <i class="bi bi-search"></i></h1></div>'
         cantidad.innerHTML = 0
         alert('No hay resultados')
     }
@@ -210,28 +156,3 @@ function template(propFiltrada) {
     cajaPropiedades.innerHTML = html
 
 }
-
-
-
-
-//PRUEBAS
-
-/*
-        html += `<div class="propiedad">
-        <div class="img" style="background-image: url(${propiedadFiltrada.src})"></div>
-            <section>
-                <h5>${propiedadFiltrada.nombre}</h5>
-                <div class="d-flex justify-content-between">
-                    <p>Cuartos: ${propiedadFiltrada.cuartos}</p>
-                    <p>Metros: ${propiedadFiltrada.metros}</p>
-                </div>
-                <p class="my-3">${propiedadFiltrada.descripcion}</p>
-                <button class="btn btn-info ">Ver más</button>
-            </section>
-     </div>`
-            //agregar propiedad o
-            //agregar el html nuevamente con los parámetros del arreglo
-            // terminar con     cajaPropiedades.innerHTML = html
-    }
-*/
-;
