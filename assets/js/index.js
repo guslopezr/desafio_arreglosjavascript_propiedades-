@@ -107,15 +107,15 @@ btn.onclick = (event) => {
     // let cantidad = document.querySelector('.py-3');
 
 
-    console.log(cuartos);
-    console.log(desde);
-    console.log(hasta);
+    // console.log(cuartos);
+    // console.log(desde);
+    // console.log(hasta);
 
     if (cuartos == 0 || desde == 0 || hasta == 0) {
         alert("Todos los campos de filtro deben tener datos");
     } else {
         propSeleccionada = propiedadesJSON.filter(propiedadSel => {
-            return propiedadSel.cuartos >= cuartos && propiedadSel.metros >= desde && propiedadSel.metros <= hasta
+            return propiedadSel.cuartos > cuartos && propiedadSel.metros >= desde && propiedadSel.metros <= hasta
         })
 
         for (let propFiltrada of propSeleccionada) {
