@@ -115,7 +115,7 @@ btn.onclick = (event) => {
         alert("Todos los campos de filtro deben tener datos");
     } else {
         propSeleccionada = propiedadesJSON.filter(propiedadSel => {
-            return propiedadSel.cuartos > cuartos && propiedadSel.metros >= desde && propiedadSel.metros <= hasta
+            return propiedadSel.cuartos >= cuartos && propiedadSel.metros >= desde && propiedadSel.metros <= hasta
         })
 
         for (let propFiltrada of propSeleccionada) {
